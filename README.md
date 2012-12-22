@@ -1,8 +1,12 @@
-= setup.py Template
+# Python Project Template
 
-This is a simple Python setup.py template that can be used for writing a
-python application. The following changes need to be applied to use this
-template.
+This is a simple Python project template with setup.py. This template 
+implements i18n and uses nosetests for the automatic testing.
+
+## Project Setup
+
+The following changes need to be applied to use this template for your own
+application.
 
 - Change content of tmppackage/__init__.py
 - Change name of package within tmppackage/i18n.py
@@ -13,7 +17,7 @@ template.
 - Change the values within setup.py
 - Change all the tmppackages entry within the Makefile
 
-== Requirements
+## Requirements
 
 This package requires the following packages to be usable:
 
@@ -22,60 +26,45 @@ This package requires the following packages to be usable:
 
 Install them with pip install. The easiest way is to use it with virtualenv.
 
-[source,bash]
---------------
-$ mkvirtualenv tmppackage --not-site-packages
+    $ mkvirtualenv tmppackage --not-site-packages
 
-$ pip install nose
-...
---------------
+    $ pip install nose
+    ...
 
-== Usage
+## Usage
 
-=== Run tests
+Run tests
 
-[source,bash]
-$ make tests
+    $ make tests
 
 This runs all the tests and creates a cover directory with the html output of
 the coverage report.
 
-=== Build packages
+### Build packages
 
-[source,bash]
-$ make source
+    $ make source
 
-=== Build the documentation
+### Build the documentation
 
-[source,bash]
-$ make documentation
+    $ make documentation
 
-=== Create i18n File
+### Create i18n File
 
-[source,bash]
-$ make update-pot
+    $ make update-pot
 
 If you would like to add a new translation call the msginit command.
 
-[source,bash]
------------
-$ cd i18n
-$ msginit --locale=de --input tmppackages.pot
------------
+    $ cd i18n
+    $ msginit --locale=de --input tmppackages.pot
 
 After new string where added the transleted po files need to be updated. For
 this call
 
-[source,bash]
-$ make i18n/de.po
+    $ make i18n/de.po
 
 To test the translation call the make source target since this builds the
 translations files and then call the application with the environment set to
 the language to test.
 
-[source,bash]
----------
-$ make source
-$ LANG=de ./bin/tmppackages_bin
----------
-
+    $ make source
+    $ LANG=de ./bin/tmppackages_bin
