@@ -26,7 +26,7 @@ This package requires the following packages to be usable:
 
 Install them with pip install. The easiest way is to use it with virtualenv.
 
-    $ mkvirtualenv tmppackage --not-site-packages
+    $ mkvirtualenv --no-site-packages tmppackage
 
     $ pip install nose
     ...
